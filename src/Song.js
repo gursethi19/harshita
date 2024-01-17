@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import './Song.css';
 
 const Song = () => {
-  const [audio] = useState(new Audio('/song.mp3')); // Replace with the actual path to your audio file
+  const [audio] = useState(new Audio('/gsong.mp3')); // Replace with the actual path to your audio file
   const [playing, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
 
