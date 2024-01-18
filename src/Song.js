@@ -1,18 +1,31 @@
-// Song.js
-
 import React, { useState, useEffect } from 'react';
 import './Song.css';
+import audio1 from './gsong.mp3'
 
 const Song = () => {
-  const [audio] = useState(new Audio('/gsong.mp3')); // Replace with the actual path to your audio file
+  const [audio] = useState(new Audio(audio1));
   const [playing, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
+  const [isMetadataLoaded, setIsMetadataLoaded] = useState(false);
 
   useEffect(() => {
-    audio.addEventListener('timeupdate', handleTimeUpdate);
+    const initializeAudio = async () => {
+      try {
+        audio.addEventListener('timeupdate', handleTimeUpdate);
+        audio.addEventListener('loadedmetadata', handleMetadataLoaded);
 
+        await audio.load();
+      } catch (error) {
+        console.error('Error initializing audio:', error);
+      }
+    };
+
+    initializeAudio();
+
+    // Cleanup function
     return () => {
       audio.removeEventListener('timeupdate', handleTimeUpdate);
+      audio.removeEventListener('loadedmetadata', handleMetadataLoaded);
     };
   }, [audio]);
 
@@ -23,6 +36,10 @@ const Song = () => {
       audio.play();
     }
     setPlaying((prevPlaying) => !prevPlaying);
+  };
+
+  const handleMetadataLoaded = () => {
+    setIsMetadataLoaded(true);
   };
 
   const handleTimeUpdate = () => {
@@ -37,7 +54,7 @@ const Song = () => {
 
   return (
     <div className="song-container">
-      <h2 className="song-title">Play it aloud !</h2>
+      <h2 className="song-title">Play it aloud!</h2>
       <button className="play-button" onClick={handlePlayPause}>
         {playing ? 'Pause' : 'Play'}
       </button>
@@ -45,14 +62,14 @@ const Song = () => {
         <input
           type="range"
           min="0"
-          max={audio.duration}
+          max={isMetadataLoaded ? audio.duration : 0}
           step="0.1"
           value={currentTime}
           onChange={handleSliderChange}
           className="slider"
         />
         <p className="time-info">
-          {formatTime(currentTime)} / {formatTime(audio.duration)}
+          {formatTime(currentTime)} / {formatTime(isMetadataLoaded ? audio.duration : 0)}
         </p>
       </div>
     </div>
