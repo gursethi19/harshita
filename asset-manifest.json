@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/harshita/static/css/main.5a41f8f4.css",
-    "main.js": "/harshita/static/js/main.1742e25c.js",
+    "main.js": "/harshita/static/js/main.e8526f39.js",
     "static/js/787.79f59f2b.chunk.js": "/harshita/static/js/787.79f59f2b.chunk.js",
     "static/media/video10.mp4": "/harshita/static/media/video10.212b31007838197a5515.mp4",
     "static/media/video11.mp4": "/harshita/static/media/video11.a166f49124369b7d540a.mp4",
+    "static/media/gsong.mp3": "/harshita/static/media/gsong.1080d70b5e961f6ff425.mp3",
     "static/media/video20.mp4": "/harshita/static/media/video20.84af262df2fb23c4ec75.mp4",
     "static/media/112.PNG": "/harshita/static/media/112.5cc88aa64486550cb870.PNG",
     "static/media/video3.mp4": "/harshita/static/media/video3.79f19c47f2d5e24a8bfd.mp4",
@@ -135,11 +136,11 @@
     "static/media/21.jpg": "/harshita/static/media/21.c3208604de94744e4158.jpg",
     "index.html": "/harshita/index.html",
     "main.5a41f8f4.css.map": "/harshita/static/css/main.5a41f8f4.css.map",
-    "main.1742e25c.js.map": "/harshita/static/js/main.1742e25c.js.map",
+    "main.e8526f39.js.map": "/harshita/static/js/main.e8526f39.js.map",
     "787.79f59f2b.chunk.js.map": "/harshita/static/js/787.79f59f2b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5a41f8f4.css",
-    "static/js/main.1742e25c.js"
+    "static/js/main.e8526f39.js"
   ]
 }
